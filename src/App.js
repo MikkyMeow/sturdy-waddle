@@ -1,11 +1,11 @@
 import React from "react";
-import { Counter } from "./features/counter/Counter";
 import "./App.css";
+import { NewsList } from "./components/pages/NewsList/NewsList";
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <NewsList />
     </div>
   );
 }
