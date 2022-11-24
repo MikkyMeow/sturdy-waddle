@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   decrement,
   increment,
@@ -7,15 +7,20 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+  selectIds,
+  getIds,
+} from "./counterSlice";
+import styles from "./Counter.module.css";
 
 export function Counter() {
   const count = useSelector(selectCount);
+  const ids = useSelector(selectIds);
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
+  const [incrementAmount, setIncrementAmount] = useState("2");
 
   const incrementValue = Number(incrementAmount) || 0;
+
+  console.log("ids", ids);
 
   return (
     <div>
@@ -34,6 +39,9 @@ export function Counter() {
           onClick={() => dispatch(increment())}
         >
           +
+        </button>
+        <button className={styles.button} onClick={() => dispatch(getIds())}>
+          Add Ids
         </button>
       </div>
       <div className={styles.row}>
